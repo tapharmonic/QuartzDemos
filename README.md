@@ -1,0 +1,1 @@
+Demo project for the **Drawing with Quartz on iOS** presentation I gave at the February 2012 [Minnesota CocoaHeads](http://www.cocoaheadsmn.org/) meeting.
