@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Getting Started</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Hello Quartz</string>
+				<key>viewName</key>
+				<string>HelloQuartzView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Simple Shapes</string>
+				<key>viewName</key>
+				<string>SimpleShapesView</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>Drawing Lines</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Graph Paper</string>
+				<key>viewName</key>
+				<string>GraphPaperView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Charlie Brown</string>
+				<key>viewName</key>
+				<string>CharlieBrownView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Joins and Caps</string>
+				<key>viewName</key>
+				<string>JoinCapView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Dash Patterns</string>
+				<key>viewName</key>
+				<string>LineDashView</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>Drawing Paths</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Quadratic Bézier Curves</string>
+				<key>viewName</key>
+				<string>SmileyView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Cubic Bézier Curves</string>
+				<key>viewName</key>
+				<string>HeartView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Fill Rules</string>
+				<key>viewName</key>
+				<string>RainbowView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Qwarkee View</string>
+				<key>viewName</key>
+				<string>CocoaHeadsView</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>Transformations</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Translation Transform</string>
+				<key>viewName</key>
+				<string>FlippedPathsView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Rotation Transform</string>
+				<key>viewName</key>
+				<string>FlowerView</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>Drawing Gradients</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Linear Gradients</string>
+				<key>viewName</key>
+				<string>LinearGradientView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Radial Gradients</string>
+				<key>viewName</key>
+				<string>RadialGradientView</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>Drawing Images</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Cropping Images</string>
+				<key>viewName</key>
+				<string>BeatlesView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Masking Images</string>
+				<key>viewName</key>
+				<string>AppleMaskView</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>PDF Content</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Viewing PDF Files</string>
+				<key>viewName</key>
+				<string>PDFView</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Creating PDF Files</string>
+				<key>viewName</key>
+				<string>SendPDFView</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

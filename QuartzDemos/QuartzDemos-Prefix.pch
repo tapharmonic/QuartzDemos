@@ -1,0 +1,29 @@
+//
+// Prefix header for all source files of the 'QuartzDemos' target in the 'QuartzDemos' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+	#import <Foundation/Foundation.h>
+	#import <QuartzCore/QuartzCore.h>
+#endif
+
+#define DEGREES_TO_RADIANS(d) (d * M_PI / 180)
+
+static inline CGPoint midPoint(CGRect r) {
+    return CGPointMake(CGRectGetMidX(r), CGRectGetMidY(r));
+}
+
+static inline CGFloat degreesToRadians(CGFloat degrees) {
+    return degrees * (M_PI / 180);
+}
+
+#define DEFAULT_FRAME CGRectMake(0, 0, 320, 480 - 44)
+
+#define COUNTOF(array) sizeof(array) / sizeof(*array)
