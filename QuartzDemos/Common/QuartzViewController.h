@@ -28,5 +28,5 @@
 @interface QuartzViewController : UIViewController
 
 - (id)initWithViewClass:(Class)viewClass;
-						 
+
 @end

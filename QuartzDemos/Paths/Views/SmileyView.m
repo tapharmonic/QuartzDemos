@@ -30,41 +30,41 @@
 @implementation SmileyView
 
 - (void)drawRect:(CGRect)rect {
-	
+
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	
+
 	// Fill background with yellow color
 	UIColor *fillColor = [UIColor colorWithRed:1.000 green:0.837 blue:0.000 alpha:1.000];
 	CGContextSetFillColorWithColor(context, fillColor.CGColor);
 	CGContextFillRect(context, rect);
-	
+
 	// Set black fill for remaining drawing operations
 	CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-	
+
 	// Draw Eyes
 	CGContextFillEllipseInRect(context, CGRectMake(100, 100, 30, 40));
 	CGContextFillEllipseInRect(context, CGRectMake(190, 100, 30, 40));
-	
+
 	// Define start, end, and control points
 	CGPoint startPoint = {70.0f, 200.0f};
 	CGPoint endPoint = {250.0f, 200.f};
 	CGPoint cp = {160.0f, 250.0f};
-	
+
 	// Begin a new path to draw mouth
 	CGContextBeginPath(context);
-	
+
 	// Add quad curve for top part of mouth
 	CGContextMoveToPoint(context, startPoint.x, startPoint.y);
 	CGContextAddQuadCurveToPoint(context, cp.x, cp.y, endPoint.x, endPoint.y);
-	
+
 	// Pull control point y value down.
 	// Increasing this value opens his mouth, decreasing it closes it
 	cp.y = 350.0f;
-	
+
 	// Add quad curve for bottom part of mouth
 	CGContextAddQuadCurveToPoint(context, cp.x, cp.y, startPoint.x, startPoint.y);
 	CGContextClosePath(context);
-	
+
 	// Draw smiley mouth
 	CGContextFillPath(context);
 }

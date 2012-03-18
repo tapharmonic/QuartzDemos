@@ -32,20 +32,20 @@
 - (void)drawRect:(CGRect)rect {
 
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	
+
 	CGFloat locations[2] = {0.0, 1.0};
-	
+
 	UIColor *lightPurple = [UIColor colorWithRed:0.897 green:0.822 blue:0.993 alpha:1.000];
 	UIColor *darkPurple = [UIColor colorWithRed:0.286 green:0.026 blue:0.622 alpha:1.000];
-	
+
 	NSArray *colors = [NSArray arrayWithObjects:(__bridge id)lightPurple.CGColor, (__bridge id)darkPurple.CGColor, nil];
-	
+
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
-	
+
 	CGPoint startPoint = CGPointMake(CGRectGetMidX(rect), 200.0f);
 	CGPoint endPoint = CGPointMake(CGRectGetMidX(rect), 250.0f);
-	
+
 	int options = kCGGradientDrawsAfterEndLocation | kCGGradientDrawsBeforeStartLocation;
 	CGContextDrawRadialGradient(context, gradient, startPoint, 0.0f, endPoint, 300.0f, options);
 	CGColorSpaceRelease(colorSpace);

@@ -43,15 +43,15 @@ CGGradientRef CreateGreenGradient() {
 	[colors addObject:(__bridge id)[UIColor colorWithRed:0.415 green:0.806 blue:0.445 alpha:1.000].CGColor];
 	[colors addObject:(__bridge id)[UIColor colorWithRed:0.359 green:0.697 blue:0.385 alpha:1.000].CGColor];
 	[colors addObject:(__bridge id)[UIColor colorWithRed:0.303 green:0.588 blue:0.325 alpha:1.000].CGColor];
-	
+
 	// Define Color Locations
 	CGFloat locations[] = {0.0, 0.7, 1.0};
-	
+
 	// Create Gradient
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
-	
-	CGColorSpaceRelease(colorSpace);	
+	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+
+	CGColorSpaceRelease(colorSpace);
 	return gradient;
 }
 
@@ -59,38 +59,38 @@ CGGradientRef CreateGlossGradient() {
 	NSMutableArray *colors = [NSMutableArray arrayWithCapacity:2];
 	[colors addObject:(__bridge id)[UIColor colorWithWhite:1.0f alpha:0.3f].CGColor];
 	[colors addObject:(__bridge id)[UIColor colorWithWhite:1.0f alpha:0.01f].CGColor];
-	
+
 	// Define Color Locations
 	CGFloat locations[] = {0.0, 1.0};
-	
+
 	// Create Gradient
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
-	
-	CGColorSpaceRelease(colorSpace);	
+	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+
+	CGColorSpaceRelease(colorSpace);
 	return gradient;
-	
+
 }
-	
+
 - (void)drawRect:(CGRect)rect {
-	
+
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	
+
 	CGFloat midX = CGRectGetMidX(rect);
 	CGFloat midY = CGRectGetMidY(rect) - 20; // weight towards top
-	
+
 	// Draw shadow layer
 	CGContextAddArc(context, midX, midY, 119.f, 0, M_PI * 2, 1);
 	CGContextSetShadowWithColor(context, CGSizeMake(3.0f, 1.0f), 10.0f, [UIColor grayColor].CGColor);
 	CGContextFillPath(context);
-	
+
 	// Add a clipping region to smooth edges
 	CGContextAddArc(context, midX, midY, 120.f, 0, M_PI * 2, 1);
 	CGContextClip(context);
 
 	CGPoint midPoint = CGPointMake(midX, midY);
 	CGPoint lightPoint = CGPointMake(midPoint.x * 0.8, midPoint.y * 0.7);
-	
+
 	CGGradientRef gradient = CreateGreenGradient();
 	CGContextDrawRadialGradient(context, gradient, lightPoint, 0, midPoint, 121.f, 0);
 	CGGradientRelease(gradient);

@@ -30,7 +30,7 @@
 @implementation PDFView
 
 - (void)drawRect:(CGRect)rect {
-	
+
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"plato" ofType:@"pdf"];
 	NSURL *pdfURL = [NSURL fileURLWithPath:path];
 
@@ -40,11 +40,11 @@
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
 	CGContextFillRect(context, self.bounds);
-	
+
 	// Flip CTM or PDF content will be upside down
 	CGContextTranslateCTM(context, 0.0, self.bounds.size.height);
 	CGContextScaleCTM(context, 1.0, -1.0);
-	
+
 	NSUInteger pageCount = CGPDFDocumentGetNumberOfPages(document);
 	NSLog(@"%d pages in Plato's Republic", pageCount);
 	// Get the first page
@@ -57,10 +57,10 @@
 
 	// Draw the PDF page
 	CGContextDrawPDFPage(context, page);
-	
+
 	// Release pdf doc
 	CGPDFDocumentRelease(document);
-	
+
 }
 
 @end

@@ -38,9 +38,9 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-	
+
 	THDrawBlueSkyGradient(UIGraphicsGetCurrentContext(), rect);
-	
+
 	NSMutableArray *colors = [NSMutableArray array];
 	[colors addObject:[UIColor colorWithRed:1.000 green:0.250 blue:0.250 alpha:1.000]]; // red
 	[colors addObject:[UIColor colorWithRed:1.000 green:0.708 blue:0.014 alpha:1.000]]; // orange
@@ -49,26 +49,24 @@
 	[colors addObject:[UIColor colorWithRed:0.374 green:0.369 blue:1.000 alpha:1.000]]; // blue
 	[colors addObject:[UIColor colorWithRed:0.514 green:0.283 blue:0.768 alpha:1.000]]; // purple
 
-	
+
 	CGPoint centerPoint = {160.0, 400};
 	CGFloat radius = 350;
 	CGFloat lineWidth = 25;
-	
+
 	for (int i = 0; i < colors.count; i++) {
-		
+
 		[[colors objectAtIndex:i] setFill];
-		
+
 		UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:centerPoint
-		                                                    radius:radius
-			                                            startAngle:0
-						                                  endAngle:M_PI 
-														 clockwise:NO];
-		
+															radius:radius
+														startAngle:0
+														  endAngle:M_PI clockwise:NO];
+
 		// "Erase" the inner portion of the outer arc by relying on the non-zero winding rule
 		[path appendPath:[UIBezierPath bezierPathWithArcCenter:centerPoint
 														radius:radius - lineWidth - 1.0f
-													startAngle:M_PI
-													  endAngle:0 
+													startAngle:M_PI endAngle:0
 													 clockwise:YES]];
 
 		[path fill];

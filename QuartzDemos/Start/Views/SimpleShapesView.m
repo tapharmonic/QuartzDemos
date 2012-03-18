@@ -51,7 +51,7 @@
 
 	// Get handle to current CGContext
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	
+
 	THDrawWhiteGradient(context, rect);
 
 	// Set stroke width and color

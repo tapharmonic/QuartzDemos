@@ -31,29 +31,29 @@
 
 - (void)drawRect:(CGRect)rect {
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	
+
 	// Fill background with Yellow
 	UIColor *fillColor = [UIColor colorWithRed:0.961 green:0.704 blue:0.159 alpha:1.000];
 	CGContextSetFillColorWithColor(context, fillColor.CGColor);
 	CGContextFillRect(context, rect);
-	
+
 	// Set stroke color and line width
 	CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
 	CGContextSetLineWidth(context, 60.0f);
-	
+
 	// Translate Y down 190 points
 	CGContextTranslateCTM(context, 0.0f, 190.0f);
-	
+
 	CGPoint blackLines[] = {
-		CGPointMake(-30.0f, 130.0f),
-		CGPointMake(45.0f, 30.0f),
-		CGPointMake(100.0f, 100.0f),
-		CGPointMake(160.0f, 30.0f),
-		CGPointMake(220.0f, 100.0f),
-		CGPointMake(275.0f, 30.0f),
-		CGPointMake(350.0f, 130.0f),
+			CGPointMake(-30.0f, 130.0f),
+			CGPointMake(45.0f, 30.0f),
+			CGPointMake(100.0f, 100.0f),
+			CGPointMake(160.0f, 30.0f),
+			CGPointMake(220.0f, 100.0f),
+			CGPointMake(275.0f, 30.0f),
+			CGPointMake(350.0f, 130.0f),
 	};
-	
+
 	CGContextAddLines(context, blackLines, sizeof(blackLines) / sizeof(blackLines[0]));
 	CGContextStrokePath(context);
 }

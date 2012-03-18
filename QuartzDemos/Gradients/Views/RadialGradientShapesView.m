@@ -50,8 +50,8 @@
 
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 
-	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
-	
+	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+
 	CGPoint startPoint = CGPointMake(100.0f, 100.0f);
 	CGPoint endPoint = CGPointMake(200.0f, 200.0f);
 	CGContextDrawRadialGradient(context, gradient, startPoint, 75.0f, endPoint, 100.0f, 0);

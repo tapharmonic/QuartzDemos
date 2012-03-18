@@ -39,7 +39,7 @@
 	UIColor *startColor = [UIColor colorWithRed:0.020 green:1.000 blue:0.341 alpha:1.000];
 	UIColor *middleColor = [UIColor colorWithRed:0.024 green:0.620 blue:1.000 alpha:1.000];
 	UIColor *endColor = [UIColor colorWithRed:0.863 green:0.020 blue:1.000 alpha:1.000];
-	
+
 	const CGFloat *staComps = CGColorGetComponents(startColor.CGColor);
 	const CGFloat *midComps = CGColorGetComponents(middleColor.CGColor);
 	const CGFloat *endComps = CGColorGetComponents(endColor.CGColor);

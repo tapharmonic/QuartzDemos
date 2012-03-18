@@ -40,11 +40,11 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.view.backgroundColor = [UIColor blackColor];
-	
+
 	NSArray *classes = [self viewClasses];
 	CGRect viewRect = self.scrollView.frame;
 	self.scrollView.contentSize = CGSizeMake(viewRect.size.width * [classes count], viewRect.size.height);
-	
+
 	for (Class controllerClass in classes) {
 		[self.scrollView addSubview:[[controllerClass alloc] initWithFrame:viewRect]];
 		viewRect = CGRectOffset(viewRect, viewRect.size.width, 0);
@@ -57,9 +57,9 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
-    CGFloat pageWidth = self.scrollView.frame.size.width;
-    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    self.pageControl.currentPage = page;
+	CGFloat pageWidth = self.scrollView.frame.size.width;
+	int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+	self.pageControl.currentPage = page;
 }
 
 - (IBAction)changePage:(id)sender {
@@ -67,7 +67,7 @@
 	CGFloat x = scrollViewSize.width * self.pageControl.currentPage;
 	CGFloat y = 0;
 	CGRect visibleRect = {{x, y}, scrollViewSize};
-    [self.scrollView scrollRectToVisible:visibleRect animated:YES];
+	[self.scrollView scrollRectToVisible:visibleRect animated:YES];
 }
 
 - (void)viewDidUnload {

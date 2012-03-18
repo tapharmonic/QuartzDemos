@@ -38,43 +38,43 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-	
+
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	
+
 	// Move the X-origin to center to simplify
 	CGContextTranslateCTM(context, CGRectGetMidX(rect), 0);
-	
+
 	// Set up stroke and fill colors
 	UIColor *fillColor = [UIColor redColor];
 	UIColor *strokeColor = [UIColor colorWithRed:0.800 green:0.000 blue:0.000 alpha:1.000];
-	
+
 	CGContextSetLineWidth(context, 3.0f);
 	CGContextSetLineJoin(context, kCGLineJoinRound);
 	CGContextSetStrokeColorWithColor(context, strokeColor.CGColor);
 	CGContextSetFillColorWithColor(context, fillColor.CGColor);
-	
+
 	// Start and End points
 	CGPoint startPoint = {0.0f, 115.0f};
 	CGPoint endPoint = {0.0f, 300.0f};
-	
+
 	// First control point (top)
 	CGPoint cp1 = {75.0f, 15.0f};
 	// Second control point (bottom)
 	CGPoint cp2 = {220.0f, 130.0f};
-	
+
 	// Begin new path and move to starting point
 	CGContextBeginPath(context);
 	CGContextMoveToPoint(context, startPoint.x, startPoint.y);
-	
+
 	// Draw Right Side
 	CGContextAddCurveToPoint(context, cp1.x, cp1.y, cp2.x, cp2.y, endPoint.x, endPoint.y);
 	// Draw Light Side
 	CGContextAddCurveToPoint(context, -cp2.x, cp2.y, -cp1.x, cp1.y, startPoint.x, startPoint.y);
-	
+
 	// Close and draw path
 	CGContextClosePath(context);
 	CGContextDrawPath(context, kCGPathFillStroke);
-	
+
 }
 
 @end

@@ -59,7 +59,7 @@ void drawImage(CGContextRef context, CGRect faceRect, CGPoint destPoint) {
 
 	// Draw a shadowed frame around the image
 	drawImageFrame(context, imageRect);
-	
+
 	// Draw face image, scaled to the 'imageRect' size
 	[[UIImage imageWithCGImage:image] drawInRect:imageRect];
 
@@ -79,7 +79,7 @@ CGPoint destPoint(CGFloat pointX, CGFloat pointY) {
 	CGContextRef context = UIGraphicsGetCurrentContext();
 
 	THDrawWhiteGradient(context, rect);
-	
+
 	UIImage *logoImage = [UIImage imageNamed:@"beatles_logo"];
 	[logoImage drawAtPoint:CGPointMake(100.0f, 180.0f)];
 

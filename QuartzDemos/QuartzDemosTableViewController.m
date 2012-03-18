@@ -26,23 +26,6 @@
 //
 
 #import "QuartzDemosTableViewController.h"
-//#import "HelloQuartzViewController.h"
-//#import "SimpleShapesViewController.h"
-//#import "CharlieBrownViewController.h"
-//#import "GraphPaperViewController.h"
-//#import "JoinCapViewController.h"
-//#import "LinearGradientViewController.h"
-//#import "RadialGradientViewController.h"
-//#import "LineDashViewController.h"
-//#import "TransformViewController.h"
-//#import "FlowerViewController.h"
-//#import "RainbowViewController.h"
-//#import "FlippedPathsViewController.h"
-//#import "HeartViewController.h"
-//#import "SmileyViewController.h"
-//#import "BeatlesViewController.h"
-//#import "AppleMaskViewController.h"
-//#import "CocoaHeadsViewController.h"
 
 #import "QuartzDemo.h"
 #import "QuartzViewController.h"
@@ -67,11 +50,11 @@
 	[super viewDidLoad];
 
 	self.title = @"Quartz Demos";
-	
+
 	self.demos = [NSMutableArray array];
-	
+
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"QuartzDemos" ofType:@"plist"];
-	
+
 	for (id data in [NSArray arrayWithContentsOfURL:[NSURL fileURLWithPath:path]]) {
 		NSString *group = [[data allKeys] objectAtIndex:0];
 		NSMutableArray *quartzDemos = [NSMutableArray array];
@@ -80,7 +63,7 @@
 			NSString *viewName = [demo valueForKey:@"viewName"];
 			[quartzDemos addObject:[QuartzDemo quartzDemoWithTitle:title viewName:viewName]];
 		}
-		
+
 		[self.demos addObject:[NSDictionary dictionaryWithObject:quartzDemos forKey:group]];
 	}
 
@@ -132,7 +115,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSArray *values = [self valuesForSection:indexPath.section];
 	QuartzDemo *demo = [values objectAtIndex:indexPath.row];
-	
+
 	id controller = nil;
 	if (demo.controllerClass) {
 		controller = [[demo.controllerClass alloc] init];

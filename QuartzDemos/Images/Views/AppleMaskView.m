@@ -41,30 +41,30 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-	
+
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	
+
 	UIImage *maskImage = [UIImage imageNamed:@"apple_mask"];
 	UIImage *colorsImage = [UIImage imageNamed:@"apple_colors"];
-	
+
 	CGImageRef maskRef = maskImage.CGImage;
 	CGImageRef imageMask = CGImageMaskCreate(CGImageGetWidth(maskRef),
-											 CGImageGetHeight(maskRef),
-											 CGImageGetBitsPerComponent(maskRef),
-											 CGImageGetBitsPerPixel(maskRef),
-											 CGImageGetBytesPerRow(maskRef),
-											 CGImageGetDataProvider(maskRef), NULL, false);
-	
+			CGImageGetHeight(maskRef),
+			CGImageGetBitsPerComponent(maskRef),
+			CGImageGetBitsPerPixel(maskRef),
+			CGImageGetBytesPerRow(maskRef),
+			CGImageGetDataProvider(maskRef), NULL, false);
+
 	CGImageRef maskedRef = CGImageCreateWithMask(colorsImage.CGImage, imageMask);
 	UIImage *maskedImage = [UIImage imageWithCGImage:maskedRef];
 
 	// Free up CG resources
 	CGImageRelease(maskedRef);
 	CGImageRelease(imageMask);
-	
+
 	CGFloat x = (rect.size.width - maskedImage.size.width) / 2;
 	CGFloat y = ((rect.size.height - maskedImage.size.height) / 2) - 10;
-	
+
 	CGContextSetShadowWithColor(context, CGSizeMake(1.0f, 1.0f), 10, [UIColor blackColor].CGColor);
 	[maskedImage drawAtPoint:CGPointMake(x, y)];
 }

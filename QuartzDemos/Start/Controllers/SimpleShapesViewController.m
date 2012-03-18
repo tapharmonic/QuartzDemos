@@ -36,7 +36,7 @@
 }
 
 - (IBAction)strokeShapes:(id)sender {
-	[(id) self.view setStrokeWidth:[(UISlider *) sender value]];
+	[(id)self.view setStrokeWidth:[(UISlider *)sender value]];
 }
 
 @end

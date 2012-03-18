@@ -30,26 +30,26 @@
 @implementation LinearGradientThreeColorHorizontalView
 
 - (void)drawRect:(CGRect)rect {
-	
+
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	
+
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-	
+
 	NSMutableArray *colors = [NSMutableArray arrayWithCapacity:4];
 	[colors addObject:(__bridge id)[UIColor redColor].CGColor];
 	[colors addObject:(__bridge id)[UIColor whiteColor].CGColor];
 	[colors addObject:(__bridge id)[UIColor whiteColor].CGColor];
 	[colors addObject:(__bridge id)[UIColor blueColor].CGColor];
-	
+
 	CGFloat locations[] = {0.0, 0.33, 0.66, 1.0};
-	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
-	
+	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+
 	CGPoint startPoint = CGPointMake(CGRectGetMinX(rect), CGRectGetMidY(rect));
 	CGPoint endPoint = CGPointMake(CGRectGetMaxX(rect), CGRectGetMidY(rect));
-	
+
 	CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
 	CGContextDrawPath(context, kCGPathFill);
-	
+
 	// Created them need to release them
 	CGGradientRelease(gradient);
 	CGColorSpaceRelease(colorSpace);

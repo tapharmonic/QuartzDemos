@@ -41,13 +41,13 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	[super viewDidLoad];
 #if TARGET_IPHONE_SIMULATOR
 	self.button.enabled = NO;
 	self.label.text = @"This demo must be run on a device.";
 #else
 	self.label.text = @"";
-#endif	
+#endif
 }
 
 - (void)viewDidUnload {
@@ -57,7 +57,7 @@
 }
 
 - (BOOL)createPDFDocumentAtURL:(NSURL *)url {
-	
+
 	// Bounding rectangle for PDF content
 	CGRect mediaBox = CGRectMake(0, 0, 250, 250);
 
@@ -67,51 +67,50 @@
 	[metadata setObject:DOC_TITLE forKey:(id)kCGPDFContextTitle];
 	[metadata setObject:@"Bob McCune" forKey:(id)kCGPDFContextAuthor];
 	[metadata setObject:@"Creating a PDF file from an iOS app." forKey:(id)kCGPDFContextSubject];
-	
+
 	// Create a PDF context at the specified URL
 	CGContextRef pdfContext = CGPDFContextCreateWithURL((__bridge CFURLRef)url, &mediaBox, (__bridge CFDictionaryRef)metadata);
-	
+
 	if (!pdfContext) {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failure" 
-															message:@"The PDF context could not be created." 
-														   delegate:nil 
-												  cancelButtonTitle:@"OK" 
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failure"
+															message:@"The PDF context could not be created."
+														   delegate:nil cancelButtonTitle:@"OK"
 												  otherButtonTitles:nil];
 		[alertView show];
 		return NO;
 	}
-	
+
 	// Begin a new PDF page
 	CGContextBeginPage(pdfContext, &mediaBox);
-	
+
 	CGContextSaveGState(pdfContext);
 	{
 		// Clip content area to media box dimensions
 		CGContextClipToRect(pdfContext, mediaBox);
-		
+
 		UIImage *image = [UIImage imageNamed:@"bobmccune"];
 		CGRect imageRect = {{0, 0}, image.size};
 		CGContextScaleCTM(pdfContext, 0.5, 0.5);
 		CGContextDrawImage(pdfContext, imageRect, image.CGImage);
-		
+
 		// Make the whole media box area a clickable link
 		NSURL *linkURL = [NSURL URLWithString:@"http://bobmccune.com"];
-		CGPDFContextSetURLForRect(pdfContext,(__bridge CFURLRef)linkURL, mediaBox);
-		
+		CGPDFContextSetURLForRect(pdfContext, (__bridge CFURLRef)linkURL, mediaBox);
+
 	}
 	CGContextRestoreGState(pdfContext);
-	
+
 	// End page and free PDF context
 	CGContextEndPage(pdfContext);
 	CGContextRelease(pdfContext);
-	
+
 	return YES;
 }
 
 - (IBAction)emailPDF:(id)sender {
-	
+
 	NSURL *pdfURL = [NSURL fileURLWithPath:PDF_PATH];
-	
+
 	if ([self createPDFDocumentAtURL:pdfURL] && [MFMailComposeViewController canSendMail]) {
 		MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
 		controller.mailComposeDelegate = self;
@@ -121,10 +120,9 @@
 		[controller addAttachmentData:pdfData mimeType:@"application/pdf" fileName:@"quartz.pdf"];
 		[self presentModalViewController:controller animated:YES];
 	} else {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Nein!" 
-															message:@"The email could not be sent at this time." 
-														   delegate:nil 
-												  cancelButtonTitle:@"OK" 
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Nein!"
+															message:@"The email could not be sent at this time."
+														   delegate:nil cancelButtonTitle:@"OK"
 												  otherButtonTitles:nil];
 		[alertView show];
 	}
@@ -135,7 +133,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end

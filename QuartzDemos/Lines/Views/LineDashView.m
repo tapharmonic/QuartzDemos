@@ -28,7 +28,7 @@
 #import "LineDashView.h"
 
 #define START_X 30.0f
-#define END_X	290.0f
+#define END_X    290.0f
 
 @implementation LineDashView
 
@@ -48,34 +48,34 @@ void drawLine(CGContextRef context) {
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
 	CGContextFillRect(context, rect);
-	
+
 	CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
 	CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
 	CGContextSetLineWidth(context, 10.0);
 
 	// Dash pattern
 	const CGFloat pattern[] = {10, 5, 20, 5};
-	
+
 
 	// Solid Black Line - No Dash
 	CGContextTranslateCTM(context, 0, 80.0f);
 	drawLabel(@"Line 1:", @"No Pattern");
 	drawLine(context);
 
-	
+
 	// 10-on, 5-off
 	CGContextTranslateCTM(context, 0, 80.0f);
 	drawLabel(@"Line 2:", @"10-on, 5-off");
 	CGContextSetLineDash(context, 0, pattern, 2);
 	drawLine(context);
-	
+
 
 	// 10-on, 5-off, 20-on, 5-off
 	CGContextTranslateCTM(context, 0, 80.0f);
 	drawLabel(@"Line 3:", @"10-on, 5-off, 20-on, 5-off");
 	CGContextSetLineDash(context, 0, pattern, 4);
 	drawLine(context);
-	
+
 	// 20-on, 5-off, 10-on, 5-off
 	CGContextTranslateCTM(context, 0, 80.0f);
 	drawLabel(@"Line 4:", @"20-on, 5-off, 10-on, 5-off");
