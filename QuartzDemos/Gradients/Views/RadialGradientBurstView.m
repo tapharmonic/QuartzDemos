@@ -38,7 +38,7 @@
 	UIColor *lightPurple = [UIColor colorWithRed:0.897 green:0.822 blue:0.993 alpha:1.000];
 	UIColor *darkPurple = [UIColor colorWithRed:0.286 green:0.026 blue:0.622 alpha:1.000];
 
-	NSArray *colors = [NSArray arrayWithObjects:(__bridge id)lightPurple.CGColor, (__bridge id)darkPurple.CGColor, nil];
+	NSArray *colors = @[(__bridge id)lightPurple.CGColor, (__bridge id)darkPurple.CGColor];
 
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);

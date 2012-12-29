@@ -39,11 +39,11 @@ void THDrawWhiteGradient(CGContextRef context, CGRect rect) {
 	UIColor *whiteColor = [UIColor whiteColor];
 	UIColor *lightGrayColor = [UIColor colorWithRed:0.966 green:0.966 blue:0.966 alpha:1.000];
 
-	NSArray *colors = [NSArray arrayWithObjects:(__bridge id)whiteColor.CGColor, (__bridge id)lightGrayColor.CGColor, nil];
+	NSArray *colors = @[(id)whiteColor.CGColor, (id)lightGrayColor.CGColor];
 
 	CGFloat locations[2] = {0.0, 1.0};
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)colors, locations);
 
 	CGPoint startPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect));
 	CGPoint endPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));

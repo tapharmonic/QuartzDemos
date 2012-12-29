@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C448C24A168F891B00964E55 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C448C249168F891B00964E55 /* Default-568h@2x.png */; };
 		C4A4BC2714F9C22C00AB7620 /* SendPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4BC2614F9C22C00AB7620 /* SendPDFViewController.m */; };
 		C4A4BC3A14F9CCAE00AB7620 /* PDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4BC3914F9CCAE00AB7620 /* PDFView.m */; };
 		C4A4BC4614F9D7E200AB7620 /* SendPDFView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A4BC4514F9D7E200AB7620 /* SendPDFView.xib */; };
@@ -64,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C448C249168F891B00964E55 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C4A4BC2514F9C22C00AB7620 /* SendPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendPDFViewController.h; sourceTree = "<group>"; };
 		C4A4BC2614F9C22C00AB7620 /* SendPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendPDFViewController.m; sourceTree = "<group>"; };
 		C4A4BC3814F9CCAE00AB7620 /* PDFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFView.h; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		C4A4BC5F14F9FC3600AB7620 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C448C249168F891B00964E55 /* Default-568h@2x.png */,
 				C4A4BC6514F9FF4400AB7620 /* Icon.png */,
 				C4A4BC6C14FA01BC00AB7620 /* Icon@2x.png */,
 			);
@@ -567,6 +570,7 @@
 				C4A4BC6F14FA0CAB00AB7620 /* bobmccune.png in Resources */,
 				C4E62A7814FA31B800BA38F0 /* AbstractGradientView.xib in Resources */,
 				C4D93A2114FA4119001690A5 /* bluejeans.png in Resources */,
+				C448C24A168F891B00964E55 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +681,7 @@
 		C4EEFC5714F973A900148A3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuartzDemos/QuartzDemos-Prefix.pch";
 				INFOPLIST_FILE = "QuartzDemos/QuartzDemos-Info.plist";
@@ -688,6 +693,7 @@
 		C4EEFC5814F973A900148A3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuartzDemos/QuartzDemos-Prefix.pch";
 				INFOPLIST_FILE = "QuartzDemos/QuartzDemos-Info.plist";

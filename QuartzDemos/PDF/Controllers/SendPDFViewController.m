@@ -32,9 +32,6 @@
 
 @implementation SendPDFViewController
 
-@synthesize label = _label;
-@synthesize button = _button;
-
 - (id)init {
 	self = [super initWithNibName:@"SendPDFView" bundle:nil];
 	return self;
@@ -63,10 +60,10 @@
 
 	// PDF metadata.  Visible in Preview -> Tools -> Show Inspector -> General Info Inspector
 	NSMutableDictionary *metadata = [NSMutableDictionary dictionary];
-	[metadata setObject:@"Quartz" forKey:(id)kCGPDFContextCreator];
-	[metadata setObject:DOC_TITLE forKey:(id)kCGPDFContextTitle];
-	[metadata setObject:@"Bob McCune" forKey:(id)kCGPDFContextAuthor];
-	[metadata setObject:@"Creating a PDF file from an iOS app." forKey:(id)kCGPDFContextSubject];
+	metadata[(id)kCGPDFContextCreator] = @"Quartz";
+	metadata[(id)kCGPDFContextTitle] = DOC_TITLE;
+	metadata[(id)kCGPDFContextAuthor] = @"Bob McCune";
+	metadata[(id)kCGPDFContextSubject] = @"Creating a PDF file from an iOS app.";
 
 	// Create a PDF context at the specified URL
 	CGContextRef pdfContext = CGPDFContextCreateWithURL((__bridge CFURLRef)url, &mediaBox, (__bridge CFDictionaryRef)metadata);

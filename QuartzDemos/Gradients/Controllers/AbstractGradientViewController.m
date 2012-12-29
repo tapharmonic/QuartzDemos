@@ -29,9 +29,6 @@
 
 @implementation AbstractGradientViewController
 
-@synthesize scrollView = _scrollView;
-@synthesize pageControl = _pageControl;
-
 - (id)init {
 	self = [super initWithNibName:@"AbstractGradientView" bundle:nil];
 	return self;
@@ -46,7 +43,9 @@
 	self.scrollView.contentSize = CGSizeMake(viewRect.size.width * [classes count], viewRect.size.height);
 
 	for (Class controllerClass in classes) {
-		[self.scrollView addSubview:[[controllerClass alloc] initWithFrame:viewRect]];
+		UIView *gradientView = [[controllerClass alloc] initWithFrame:viewRect];
+		gradientView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+		[self.scrollView addSubview:gradientView];
 		viewRect = CGRectOffset(viewRect, viewRect.size.width, 0);
 	}
 }

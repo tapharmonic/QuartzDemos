@@ -30,8 +30,6 @@
 
 @implementation QuartzDemosAppDelegate
 
-@synthesize window = _window;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 	id rootViewController = [[QuartzDemosTableViewController alloc] init];

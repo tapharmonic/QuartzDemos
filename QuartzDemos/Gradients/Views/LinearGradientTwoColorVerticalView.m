@@ -36,7 +36,7 @@
 	// Define Colors
 	UIColor *startColor = [UIColor colorWithRed:1.000 green:0.969 blue:0.165 alpha:1.000]; // yellowish-orange
 	UIColor *endColor = [UIColor colorWithRed:1.000 green:0.400 blue:0.165 alpha:1.000]; // orangish-red
-	NSArray *colors = [NSArray arrayWithObjects:(__bridge id)startColor.CGColor, (__bridge id)endColor.CGColor, nil];
+	NSArray *colors = @[(__bridge id)startColor.CGColor, (__bridge id)endColor.CGColor];
 
 	// Define Color Locations
 	CGFloat locations[] = {0.0, 1.0};

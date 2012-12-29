@@ -28,16 +28,11 @@
 #import "QuartzDemo.h"
 
 @interface QuartzDemo ()
-
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *viewName;
-
 @end
 
 @implementation QuartzDemo
-
-@synthesize title = _title;
-@synthesize viewName = _viewName;
 
 + (id)quartzDemoWithTitle:(NSString *)title viewName:(NSString *)viewName {
 	return [[self alloc] initWithTitle:title viewName:viewName];

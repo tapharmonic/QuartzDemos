@@ -28,12 +28,10 @@
 #import "QuartzViewController.h"
 
 @interface QuartzViewController ()
-@property (nonatomic, retain) Class viewClass;
+@property (nonatomic, strong) Class viewClass;
 @end
 
 @implementation QuartzViewController
-
-@synthesize viewClass = _viewClass;
 
 - (id)initWithViewClass:(Class)viewClass {
 	if ((self = [super initWithNibName:nil bundle:nil])) {

@@ -56,7 +56,7 @@
 
 	for (int i = 0; i < colors.count; i++) {
 
-		[[colors objectAtIndex:i] setFill];
+		[colors[i] setFill];
 
 		UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:centerPoint
 															radius:radius

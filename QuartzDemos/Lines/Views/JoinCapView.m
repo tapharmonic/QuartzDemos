@@ -29,9 +29,6 @@
 
 @implementation JoinCapView
 
-@synthesize lineCap = _lineCap;
-@synthesize lineJoin = _lineJoin;
-
 - (id)initWithCoder:(NSCoder *)aDecoder {
 	if ((self = [super initWithCoder:aDecoder])) {
 		_lineCap = kCGLineCapButt;

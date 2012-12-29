@@ -30,8 +30,6 @@
 
 @implementation SimpleShapesView
 
-@synthesize strokeWidth = _strokeWidth;
-
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {

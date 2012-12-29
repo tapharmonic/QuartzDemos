@@ -40,11 +40,8 @@
 
 @implementation QuartzDemosTableViewController
 
-@synthesize demos = _demos;
-
 #pragma mark -
 #pragma mark View lifecycle
-
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -56,15 +53,15 @@
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"QuartzDemos" ofType:@"plist"];
 
 	for (id data in [NSArray arrayWithContentsOfURL:[NSURL fileURLWithPath:path]]) {
-		NSString *group = [[data allKeys] objectAtIndex:0];
+		NSString *group = [data allKeys][0];
 		NSMutableArray *quartzDemos = [NSMutableArray array];
-		for (NSDictionary *demo in [data objectForKey:group]) {
+		for (NSDictionary *demo in data[group]) {
 			NSString *title = [demo valueForKey:@"title"];
 			NSString *viewName = [demo valueForKey:@"viewName"];
 			[quartzDemos addObject:[QuartzDemo quartzDemoWithTitle:title viewName:viewName]];
 		}
 
-		[self.demos addObject:[NSDictionary dictionaryWithObject:quartzDemos forKey:group]];
+		[self.demos addObject:@{group: quartzDemos}];
 	}
 
 }
@@ -73,13 +70,13 @@
 #pragma mark Table view data source
 
 - (NSArray *)valuesForSection:(NSUInteger)section {
-	NSDictionary *dictionary = [self.demos objectAtIndex:section];
-	NSString *key = [[dictionary allKeys] objectAtIndex:0];
-	return [dictionary objectForKey:key];
+	NSDictionary *dictionary = (self.demos)[section];
+	NSString *key = [dictionary allKeys][0];
+	return dictionary[key];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	return [[[self.demos objectAtIndex:section] allKeys] objectAtIndex:0];
+	return [(self.demos)[section] allKeys][0];
 }
 
 // Customize the number of sections in the table view.
@@ -104,7 +101,7 @@
 
 
 	NSArray *values = [self valuesForSection:indexPath.section];
-	cell.textLabel.text = [[values objectAtIndex:indexPath.row] title];
+	cell.textLabel.text = [values[indexPath.row] title];
 
 	return cell;
 }
@@ -114,7 +111,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSArray *values = [self valuesForSection:indexPath.section];
-	QuartzDemo *demo = [values objectAtIndex:indexPath.row];
+	QuartzDemo *demo = values[indexPath.row];
 
 	id controller = nil;
 	if (demo.controllerClass) {
