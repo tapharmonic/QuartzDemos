@@ -29,8 +29,9 @@
 
 @implementation JoinCapView
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-	if ((self = [super initWithCoder:aDecoder])) {
+- (id)initWithCoder:(NSCoder *)coder {
+	self = [super initWithCoder:coder];
+	if (self) {
 		_lineCap = kCGLineCapButt;
 		_lineJoin = kCGLineJoinMiter;
 	}

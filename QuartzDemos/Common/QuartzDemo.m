@@ -39,9 +39,10 @@
 }
 
 - (id)initWithTitle:(NSString *)title viewName:(NSString *)viewName {
-	if ((self = [super init])) {
-		self.title = title;
-		self.viewName = viewName;
+	self = [super init];
+	if (self) {
+		_title = [title copy];
+		_viewName = [viewName copy];
 	}
 	return self;
 }

@@ -34,8 +34,9 @@
 @implementation QuartzViewController
 
 - (id)initWithViewClass:(Class)viewClass {
-	if ((self = [super initWithNibName:nil bundle:nil])) {
-		self.viewClass = viewClass;
+	self = [super initWithNibName:nil bundle:nil];
+	if (self) {
+		_viewClass = viewClass;
 	}
 	return self;
 }

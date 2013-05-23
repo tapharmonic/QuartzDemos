@@ -31,7 +31,8 @@
 @implementation RainbowView
 
 - (id)initWithFrame:(CGRect)frame {
-	if ((self = [super initWithFrame:frame])) {
+	self = [super initWithFrame:frame];
+	if (self) {
 		self.backgroundColor = [UIColor darkGrayColor];
 	}
 	return self;
