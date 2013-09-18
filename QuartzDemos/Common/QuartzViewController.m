@@ -37,6 +37,7 @@
 	self = [super initWithNibName:nil bundle:nil];
 	if (self) {
 		_viewClass = viewClass;
+        self.edgesForExtendedLayout = UIRectEdgeNone;
 	}
 	return self;
 }

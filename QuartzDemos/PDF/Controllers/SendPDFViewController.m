@@ -115,7 +115,7 @@
 		[controller setMessageBody:@"Check out this PDF file created in Quartz..." isHTML:NO];
 		NSData *pdfData = [NSData dataWithContentsOfURL:pdfURL];
 		[controller addAttachmentData:pdfData mimeType:@"application/pdf" fileName:@"quartz.pdf"];
-		[self presentModalViewController:controller animated:YES];
+        [self presentViewController:controller animated:YES completion:nil];
 	} else {
 		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Nein!"
 															message:@"The email could not be sent at this time."
@@ -126,7 +126,7 @@
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

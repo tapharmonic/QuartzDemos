@@ -33,8 +33,11 @@
 @implementation LineDashView
 
 void drawLabel(NSString *label, NSString *description) {
-	[label drawAtPoint:CGPointMake(START_X, -40.0f) withFont:[UIFont boldSystemFontOfSize:17]];
-	[description drawAtPoint:CGPointMake(START_X + 60.0f, -40.0f) withFont:[UIFont systemFontOfSize:17]];
+    
+    NSDictionary *attrs = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:17]};
+    
+	[label drawAtPoint:CGPointMake(START_X, -40.0f) withAttributes:attrs];
+	[description drawAtPoint:CGPointMake(START_X + 60.0f, -40.0f) withAttributes:attrs];
 }
 
 void drawLine(CGContextRef context) {

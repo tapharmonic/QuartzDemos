@@ -32,6 +32,9 @@
 
 - (id)init {
 	self = [super initWithNibName:@"JoinCapView" bundle:nil];
+    if (self) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
 	return self;
 }
 

@@ -32,6 +32,9 @@
 
 - (id)init {
 	self = [super initWithNibName:@"SimpleShapesView" bundle:nil];
+    if (self) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
 	return self;
 }
 
