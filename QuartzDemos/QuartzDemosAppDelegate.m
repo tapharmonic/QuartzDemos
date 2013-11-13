@@ -32,6 +32,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
 	id rootViewController = [[QuartzDemosTableViewController alloc] init];
 	id navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 	self.window.rootViewController = navigationController;
