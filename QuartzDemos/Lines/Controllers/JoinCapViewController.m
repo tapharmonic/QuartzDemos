@@ -43,10 +43,10 @@
 }
 
 - (IBAction)changeLineCap:(id)sender {
-	[(JoinCapView *)self.view setLineCap:[sender selectedSegmentIndex]];
+	[(JoinCapView *)self.view setLineCap:(CGLineCap)[sender selectedSegmentIndex]];
 }
 
 - (IBAction)changeLineJoin:(id)sender {
-	[(JoinCapView *)self.view setLineJoin:[sender selectedSegmentIndex]];
+	[(JoinCapView *)self.view setLineJoin:(CGLineJoin)[sender selectedSegmentIndex]];
 }
 @end

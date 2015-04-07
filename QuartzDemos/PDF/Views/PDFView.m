@@ -46,7 +46,7 @@
 	CGContextScaleCTM(context, 1.0, -1.0);
 
 	NSUInteger pageCount = CGPDFDocumentGetNumberOfPages(document);
-	NSLog(@"%d pages in Plato's Republic", pageCount);
+	NSLog(@"%lu pages in Plato's Republic", (unsigned long)pageCount);
 	// Get the first page
 	CGPDFPageRef page = CGPDFDocumentGetPage(document, 1);
 
